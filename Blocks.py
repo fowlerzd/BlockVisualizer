@@ -2,45 +2,6 @@
 from turtle import Turtle
 import math
 
-'''
-# read othographic points
-file = open('othographics.txt', 'r')
-
-# initialize point lists
-top_points = []
-front_points = []
-side_points = []
-
-all_points = [top_points, front_points, side_points]
-
-# first line
-line = file.readline()
-
-# read file
-if "Top" in line:
-    # read in top points
-    line = file.readline()
-    while "Front" not in line:
-        coords = [int(x.strip()) for x in line.split(',')]
-        top_points.append(coords)
-        line = file.readline()
-    # read in front points
-    line = file.readline()
-    while "Side" not in line:
-        coords = [int(x.strip()) for x in line.split(',')]
-        front_points.append(coords)
-        line = file.readline()
-    # read in side points
-    line = file.readline()
-    while line != "":
-        coords = [int(x.strip()) for x in line.split(',')]
-        side_points.append(coords)
-        line = file.readline()
-
-# debug
-print(top_points, front_points, side_points)
-'''
-
 colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink']
 
 # 3d points on a cube
