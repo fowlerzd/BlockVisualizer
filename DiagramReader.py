@@ -12,7 +12,6 @@ print("Image Height: ", IMG_HEIGHT)
 print("Image Width: ", IMG_WIDTH)
 print("Image Depth: ", IMG_DEPTH)
 
-
 # find horizontal seperation
 white_count = 0
 widest_white_count_row = 0
@@ -44,3 +43,13 @@ for col in range(IMG_WIDTH):
         else:
             white_count = 0
 print("Tallest White Col: ", tallest_white_count_col)
+
+print()
+print("(Col, Row)")
+
+intersect = (tallest_white_count_col, widest_white_count_row)
+
+# print bounds of each 
+print(f"Top View Bounds: (0, 0) to (" + str(intersect[0]-1) + ", " + str(intersect[1]-1) + ")")
+print(f"Front View Bounds: (0, " + str(intersect[1]+1) + ") to (" + str(intersect[0]-1) + ", " + str(IMG_HEIGHT-1) + ")")
+print(f"Side View Bounds: (" + str(intersect[0]+1) + ", " + str(intersect[1]+1) + ") to (" + str(IMG_WIDTH-1) + ", " + str(IMG_HEIGHT-1) + ")")
