@@ -73,24 +73,32 @@ top_points = []
 front_points = []
 side_points = []
 
-# bounds for pixel search
-starting_row = top_view_bounds[0][0]
-starting_col = top_view_bounds[0][1]
-ending_row = top_view_bounds[1][0]
-ending_col = top_view_bounds[1][1]
+# determine where each black pixel is given bounds and a list to append values to view (row, col)
+def find_pixels(bounds, list):
+    starting_row = bounds[0][0]
+    starting_col = bounds[0][1]
+    ending_row = bounds[1][0]
+    ending_col = bounds[1][1]
+    
+    current_row = starting_row
+    current_col = starting_col
 
-current_row = starting_row
-current_col = starting_col
+    while(current_row <= ending_row):
+        current_col = starting_col
+        while(current_col <= ending_col):
+            view = img.view()[current_row][current_col]
+            if((img.view()[current_row][current_col] == [0, 0, 0]).all()):
+                list.append((current_row - starting_row, current_col - starting_col))
+            current_col += 1
+        current_row += 1
 
-# print(starting_row, starting_col, ending_row, ending_col, current_row, current_col)
-
-# determine where each black pixel is for the top viwe (row, col)
-while(current_row <= ending_row):
-    while(current_col <= ending_col):
-        view = img.view()[current_row][current_col]
-        if((img.view()[current_row][current_col] == [0, 0, 0]).all()):
-            top_points.append((current_row, current_col))
-        current_col += 1
-    current_row += 1
+find_pixels(top_view_bounds, top_points)
+find_pixels(front_view_bounds, front_points)
+find_pixels(side_view_bounds, side_points)
 
 print(top_points)
+print()
+print(front_points)
+print()
+print(side_points)
+print()
